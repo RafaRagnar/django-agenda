@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.db import models
 from django.utils import timezone
 
@@ -5,12 +6,12 @@ from django.utils import timezone
 class Contact(models.Model):
     """ This Class represents a contact with basic information. """
 
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50, blank=True)
-    phone = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254, blank=True)
-    created_data = models.DateTimeField(default=timezone.now)
-    description = models.TextField(blank=True)
+    first_name: str = models.CharField(max_length=50)
+    last_name: str = models.CharField(max_length=50, blank=True)
+    phone: str = models.CharField(max_length=50)
+    email: str = models.EmailField(max_length=254, blank=True)
+    created_date: datetime = models.DateTimeField(default=timezone.now)
+    description: str = models.TextField(blank=True)
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
