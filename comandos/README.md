@@ -11,6 +11,11 @@ pip install mypy
 pip install flake8
 
 ```
+Criar um app novo
+
+python manage.py startapp contact
+
+```
 
 Configurar o git
 
@@ -23,4 +28,5 @@ git init
 git add .
 git commit -m 'Mensagem'
 git remote add origin URL_DO_GIT
+git push origin main -u
 ```
