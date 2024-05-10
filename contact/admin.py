@@ -18,3 +18,4 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
     """ Customization of the Category model for the Django admin interface. """
+    ...
