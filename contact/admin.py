@@ -13,3 +13,8 @@ class ContactAdmin(admin.ModelAdmin):
     list_per_page: int = 15
     list_max_show_all: int = 200
     list_display_links: tuple = ('id', 'first_name')
+
+
+@admin.register(models.Category)
+class CategoryAdmin(admin.ModelAdmin):
+    """ Customization of the Category model for the Django admin interface. """

@@ -3,6 +3,16 @@ from django.db import models
 from django.utils import timezone
 
 
+class Category(models.Model):
+    """ This Class represents the categories with foreign key linkage with
+        contact.
+    """
+    name: str = models.CharField(max_length=50)
+
+    def __str__(self) -> str:
+        return f'{self.name}'
+
+
 class Contact(models.Model):
     """ This Class represents a contact with basic information. """
 
@@ -14,6 +24,8 @@ class Contact(models.Model):
     description: str = models.TextField(blank=True)
     show: bool = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
+    category = models.ForeignKey(
+        Category, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
