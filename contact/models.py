@@ -50,6 +50,9 @@ class Contact(models.Model):
         to True).
         picture (ImageField): An optional picture of the contact.
         category (ForeignKey): The category the contact belongs to (optional).
+        owner (ForeignKey to User, optional): The user who owns this contact (related to the built-in User model).
+
+    The `__str__` method returns a string representation of the contact by combining the first and last names.
     """
 
     first_name: str = models.CharField(max_length=50)
