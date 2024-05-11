@@ -1,3 +1,14 @@
+"""
+This file configures the admin interface for the Contact and Category models
+from the `contact` app.
+
+**Purpose:**
+
+- Provides a customized view of Contact and Category data within the Django
+admin panel.
+- Enables administrators to create, edit, view, and delete contact and
+category information.
+"""
 from django.contrib import admin
 from contact import models
 
@@ -19,4 +30,4 @@ class ContactAdmin(admin.ModelAdmin):
 @admin.register(models.Category)
 class CategoryAdmin(admin.ModelAdmin):
     """ Customization of the Category model for the Django admin interface. """
-    ...
+    pass
