@@ -26,7 +26,8 @@ def search(request):
     """
     Implements a search functionality for contacts based on user input.
 
-    This view function handles searching for contacts based on a query string    parameter (`q`) and displays the results on the contact list page.
+    This view function handles searching for contacts based on a query
+    string parameter (`q`) and displays the results on the contact list page.
     """
     search_value = request.GET.get('q', '').strip()
 
