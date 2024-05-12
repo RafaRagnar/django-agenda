@@ -13,3 +13,4 @@ dedicated module.
 other parts of the application.
 """
 from .contact_views import *
+from .contact_forms import *
