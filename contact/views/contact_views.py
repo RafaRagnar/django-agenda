@@ -1,6 +1,7 @@
 ''' Contact app views '''
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
+from django.core.paginator import Paginator
 from contact.models import Contact
 
 
@@ -11,12 +12,16 @@ def index(request):
     This view function handles displaying a paginated list of contacts on the
     homepage or contact index page.
     """
-    contacts = Contact.objects.filter(show=True).order_by('-id')[:10]
+    contacts = Contact.objects.filter(show=True).order_by('-id')
 
-    print(contacts.query)
+    paginator = Paginator(contacts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    # print(contacts.query)
 
     context = {
-        'contacts': contacts,
+        'page_obj': page_obj,
         'site_title': 'Contatos - '
     }
     return render(request, 'contact/index.html', context)
@@ -45,8 +50,12 @@ def search(request):
 
     # print(contacts.query)
 
+    paginator = Paginator(contacts, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     context = {
-        'contacts': contacts,
+        'page_obj': page_obj,
         'site_title': 'Search - '
     }
     return render(request, 'contact/index.html', context)
