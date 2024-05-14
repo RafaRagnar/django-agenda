@@ -14,4 +14,6 @@ urlpatterns: list = [
     path('contact/<int:contact_id>/update/', views.update, name='update'),
     path('contact/<int:contact_id>/delete/', views.delete, name='delete'),
 
+    # user
+    path('user/create/', views.register, name='register'),
 ]
